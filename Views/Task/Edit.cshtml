@@ -1,0 +1,90 @@
+﻿@model Google_To_Do.Models.zadanie
+
+
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <div class="form-group row">
+            <h2 class="text-info pl-3">Edytuj Zadanie</h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="TaskName">Nazwa</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="TaskName" class="form-control" />
+                        <span asp-validation-for="TaskName" class="text-danger"></span>
+
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="description">Opis Zadania</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="description" class="form-control" />
+                        <span asp-validation-for="description" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-4">
+                        <label>Wybierz Kategorie</label>
+                    </div>
+                    <div class="col-8">
+                        <label class="control-label"></label>
+                        <select asp-for="Category">
+
+                            <option value="ważne">ważne</option>
+                            <option value="nie ważne">nie ważne</option>
+                            <option value="średnio ważne">średnio ważne</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                        <label asp-for="priority">Priorytet</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="priority" class="form-control" />
+                        <span asp-validation-for="priority" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="StartDate">Termin Ważności</label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-4 row">
+
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-100" value="Update" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i>Cofnij</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                @* Keep this empty *@
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}

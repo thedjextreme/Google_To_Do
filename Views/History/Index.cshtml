@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Google_To_Do.Models.zadanie>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Lista zadań wykonanych</h2>
+        </div>
+        <div class="col-6 text-right">
+            @*<a asp-controller="ToDo" asp-action="Create" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> &nbsp; Utwórz Zadanie
+                </a>*@
+        </div>
+    </div>
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Zadania wykonane:
+                    </th>
+                    <th>
+                        Kategoria:
+                    </th>
+                    <th>
+                        Opis zadania :
+                    </th>
+                    <th>
+                        Piorytet:
+                    </th>
+                    <th>
+                        Data rozpoczęcia zadania:
+                    </th>
+                    <th>
+                        Data zakończenia zadania:
+                    </th>
+                    <th>
+                        Zmienić na aktywne ?
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var obj in Model)
+                {
+                <tr>
+
+                    <td width="50%">@obj.TaskName</td>
+                    <td width="50%">@obj.Category</td>
+
+                    <td width="70%">@obj.description</td>
+                    <td width="50%">@obj.priority</td>
+                    <td width="50%">@obj.StartDate</td>
+                    <td width="50%">@obj.EndDate</td>
+
+                    @*@{ int rowNo = 0; }*@
+                    @*<td width="30%">@obj.DisplayOrder</td>*@
+                    @*@rowNo++;*@
+
+
+                    @*@(rowNo + 1)*@
+
+                    <td class="text-center">
+                        <div class="w-75 btn-group" role="group">
+                            @*<a asp-controller="ToDo" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">
+                    <i class="fas fa-edit"></i> Edytuj
+                </a>*@
+                            <a asp-controller="History" asp-route-Id="@obj.Id" asp-action="Recover" class="btn btn-danger mx-2">
+                                <i class="far fa-trash-alt"></i> Przywróć
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p> No exists.</p>
+    }
+
+</div>
