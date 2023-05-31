@@ -1,6 +1,7 @@
 ﻿
 using Google_To_Do.Models;
 using Google_ToDo.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Google_To_Do.Controllers
 {
+    [Authorize]
     public class TaskController : Controller
     {
 
