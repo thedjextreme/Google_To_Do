@@ -23,14 +23,6 @@ namespace apliakcjaZadania.Controllers
             return View(deletedRecords);
 
 
-
-            //List<ToDo> objList = new List<ToDo>();
-            //var objo = _context.ToDo.Include(x => x.Priority).Where(x => x.isNow == true).ToList();
-            // var deletedRecords = _context.zadanie
-            //                             .Where(x => !x.IsActive)
-            //                             .Include(x => x.Id)
-            //                              .ToList();
-            //return View(deletedRecords);
         }
 
         public async Task<IActionResult> Recover(int? id)
@@ -44,13 +36,6 @@ namespace apliakcjaZadania.Controllers
             return RedirectToAction(nameof(Index));
 
 
-            //deletedRecord.IsActive = true;
-            //_context.zadanie
-            //        .Update(deletedRecord);
-            // await _context.SaveChangesAsync();
-
-
-            // return RedirectToAction("Index");
         }
     }
 }

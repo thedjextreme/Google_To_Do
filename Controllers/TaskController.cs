@@ -14,8 +14,7 @@ namespace Google_To_Do.Controllers
     {
 
         private readonly Taskcontext _db;
-        //private ApplicationDbContext _productManager = new ProductManager();
-        //ApplicationDbContext _categorymanager = new CategoryManager();
+
 
         public TaskController(Taskcontext db)
         {
@@ -27,14 +26,6 @@ namespace Google_To_Do.Controllers
         public IActionResult Index()
         {
 
-
-
-
-            // ViewBag.AssignmentName = TaskName;
-            //ViewBag.PrioritySelectList = new SelectList(_db.zadanie, "Id", "Name", null);
-
-            //IEnumerable<zadanie> objList = _db.zadanie;
-            //return View(objList);
 
             var work = _db.zadanie.Where(x => x.IsActive == true).ToList();
 
@@ -50,19 +41,7 @@ namespace Google_To_Do.Controllers
         //post -create
         public IActionResult Create(zadanie obj)
         {
-            //  List<SelectListItem> cities = new()
-            // {
-            //  new SelectListItem { Value = "1", Text = "Latur" },
-            //  new SelectListItem { Value = "2", Text = "Solapur" },
-            //  new SelectListItem { Value = "3", Text = "Nanded" },
-            //  new SelectListItem { Value = "4", Text = "Nashik" },
-            //  new SelectListItem { Value = "5", Text = "Nagpur" },
-            //  new SelectListItem { Value = "6", Text = "Kolhapur" },
-            // new SelectListItem { Value = "7", Text = "Pune" },
-            //   new SelectListItem { Value = "8", Text = "Mumbai" },
-            //   new SelectListItem { Value = "9", Text = "Delhi" },
-            //  new SelectListItem { Value = "10", Text = "Noida" }
-            //};
+       
             _db.zadanie.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
@@ -99,7 +78,7 @@ namespace Google_To_Do.Controllers
         //GET - DELETE
         public IActionResult Delete(int? id)
         {
-            //ViewData["TaskName"] = new SelectList(_db.zadanie, "Id", "TaskName");
+            
 
             if (id == null || id == 0)
             {
@@ -121,36 +100,16 @@ namespace Google_To_Do.Controllers
         {
 
             var employee = _db.zadanie.FirstOrDefault(x => x.Id == id);
-            //var v = employee.IsActive == false;
-            //_db.zadanie.Update(employee);
-            //_db.zadanie.Remove(employee);
-            // _db.SaveChanges();
+          
 
             employee.IsActive = false;
             employee.EndDate = DateTime.Now;
             _db.zadanie.Update(employee);
 
-            //await _db.SaveChangesAsync();
+            
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
 
-            //return RedirectToAction(nameof(Index));
-
-
-            //var obj = _db.zadanie.Find(id);
-            /// ViewData["TaskName"] = new SelectList(_db.zadanie, "Id", "TaskName");
-
-
-            // obj.EndDate = DateTime.Now;
-            // if (obj == null)
-            // {
-            //     return NotFound();
-            //}
-            //obj.IsActive = false;
-
-            //_db.zadanie.Update(obj);
-            //_db.SaveChanges();
-            //return RedirectToAction("Index");
 
         }
     }

@@ -11,8 +11,7 @@ namespace Google_To_Do.Models
         [Key]
         public int Id { get; set; }
 
-        //public string LoginId { get; set; }
-        //public string Pasword { get; set; }
+      
 
         public string TaskName { get; set; }
 
@@ -23,8 +22,7 @@ namespace Google_To_Do.Models
         public string priority { get; set; }
         public bool IsActive { get; set; } = true;
 
-        //public int PriorityID { get; set; }
-        //public Priority Priority { get; set; }
+    
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{YYYY-MM-DD HH:mm}"/*, ApplyFormatInEditMode = true*/)]
@@ -33,17 +31,8 @@ namespace Google_To_Do.Models
 
         [Display(Name = "Category")]
         public string Category { get; set; }
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
 
-
-
-        //logowanie
-        //public int Idl { get; set; }
-        //public string LoginId { get; set; }
-        //public string Password { get; set; }
-        //public string EmpoyeeName { get; set; }
-        //public string LoginId { get; set; }
-        //public string Pasword { get; set; }
     }
 
 
