@@ -1,6 +1,4 @@
-# Google_To_Do
-GoogleTasks- (Google to do) Web App ZAŁOŻENIA: 
-Na pierwszej stronie, lista zadań do wykonania z kategoriami:
+GoogleTasks- (Google to do) Web App ZAŁOŻENIA: Na pierwszej stronie, lista zadań do wykonania z kategoriami:
 a) data
 b) ważność zadania
 Możliwość dodania, usunięcia i edytowania listy oraz priorytetu
